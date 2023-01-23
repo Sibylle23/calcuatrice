@@ -4,12 +4,13 @@ public class Program
 {
     public static void Main()
     {
-        PropositionsActions();        
+
+        PropositionsActions();
 
     }
-
     public static void AfficherMenu()
     {
+
         Console.Clear();
         Console.WriteLine("Veuillez choisir une opération : " +
           "\n 1. Addition " +
@@ -20,10 +21,19 @@ public class Program
 
     public static void PropositionsActions()
     {
-        Console.WriteLine("Veuillez entrer un premier nombre");
-        int nombre1 = int.Parse(Console.ReadLine());
-        Console.WriteLine("Veuillez entrer un deuxème nombre");
-        int nombre2 = int.Parse(Console.ReadLine());
+        double nombre1, nombre2;
+
+        Console.WriteLine("Entrez le premier nombre :");
+        while (!double.TryParse(Console.ReadLine(), out nombre1))
+        {
+            Console.WriteLine("Entrée non valide. Veuillez entrer un nombre valide :");
+        }
+
+        Console.WriteLine("Entrez le deuxième nombre :");
+        while (!double.TryParse(Console.ReadLine(), out nombre2))
+        {
+            Console.WriteLine("Entrée non valide. Veuillez entrer un nombre valide :");
+        }
 
         AfficherMenu();
 
@@ -54,22 +64,22 @@ public class Program
 
     }
 
-    public static int Addition(int nombre1, int nombre2)
+    public static double Addition(double nombre1, double nombre2)
     {
         return nombre1 + nombre2;
     }
 
-    public static int Soustraction(int nombre1, int nombre2)
+    public static double Soustraction(double nombre1, double nombre2)
     {
         return nombre1 - nombre2;
     }
 
-    public static int Multiplication(int nombre1, int nombre2)
+    public static double Multiplication(double nombre1, double nombre2)
     {
         return nombre1 * nombre2;
     }
 
-    public static int Division(int nombre1, int nombre2)
+    public static double Division(double nombre1, double nombre2)
     {
         return nombre1 / nombre2;
     }
