@@ -4,21 +4,16 @@ public class Program
 {
     public static void Main()
     {
-        Console.WriteLine("Veuillez choisir une opération : " +
-            "\n 1. Addition " +
-            "\n 2. Soustraction " +
-            "\n 3. Multiplication " +
-            "\n 4. Division ");
-        int choix = int.Parse(Console.ReadLine());
-
+       
         Console.WriteLine("Veuillez entrer un premier nombre");
         int nombre1 = int.Parse(Console.ReadLine());
         Console.WriteLine("Veuillez entrer un deuxème nombre");
         int nombre2 = int.Parse(Console.ReadLine());
 
-        
-
+        AfficherMenu(); 
        
+        int choix = int.Parse(Console.ReadLine());
+
 
         switch (choix)
         {
@@ -41,6 +36,15 @@ public class Program
 
     }
 
+    public static void AfficherMenu()
+    {
+        Console.Clear();
+        Console.WriteLine("Veuillez choisir une opération : " +
+          "\n 1. Addition " +
+          "\n 2. Soustraction " +
+          "\n 3. Multiplication " +
+          "\n 4. Division ");
+    }
 
     public static int Addition(int nombre1, int nombre2)
     {
