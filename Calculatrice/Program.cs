@@ -4,14 +4,29 @@ public class Program
 {
     public static void Main()
     {
-       
+        PropositionsActions();        
+
+    }
+
+    public static void AfficherMenu()
+    {
+        Console.Clear();
+        Console.WriteLine("Veuillez choisir une opération : " +
+          "\n 1. Addition " +
+          "\n 2. Soustraction " +
+          "\n 3. Multiplication " +
+          "\n 4. Division ");
+    }
+
+    public static void PropositionsActions()
+    {
         Console.WriteLine("Veuillez entrer un premier nombre");
         int nombre1 = int.Parse(Console.ReadLine());
         Console.WriteLine("Veuillez entrer un deuxème nombre");
         int nombre2 = int.Parse(Console.ReadLine());
 
-        AfficherMenu(); 
-       
+        AfficherMenu();
+
         int choix = int.Parse(Console.ReadLine());
 
 
@@ -28,22 +43,11 @@ public class Program
                 break;
             case 4:
                 Console.WriteLine($"Résultat de la division {nombre1} : {nombre2} = " + Division(nombre1, nombre2));
-                break; 
+                break;
             default:
                 Console.WriteLine("Veuillez choisir une opération");
                 break;
         }
-
-    }
-
-    public static void AfficherMenu()
-    {
-        Console.Clear();
-        Console.WriteLine("Veuillez choisir une opération : " +
-          "\n 1. Addition " +
-          "\n 2. Soustraction " +
-          "\n 3. Multiplication " +
-          "\n 4. Division ");
     }
 
     public static int Addition(int nombre1, int nombre2)
