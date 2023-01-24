@@ -4,8 +4,15 @@ public class Program
 {
     public static void Main()
     {
+        string rejouer;
 
-        PropositionsActions();
+        do
+        {
+            PropositionsActions();
+            Console.WriteLine("Voulez-vous effectuer un nouveau calcul Si oui tapez \"oui\"?");
+            rejouer = Console.ReadLine();
+        } while (rejouer == "oui");
+
 
     }
     public static void AfficherMenu()
@@ -17,6 +24,8 @@ public class Program
           "\n 2. Soustraction " +
           "\n 3. Multiplication " +
           "\n 4. Division ");
+
+
     }
 
     public static void PropositionsActions()
@@ -36,33 +45,41 @@ public class Program
         }
 
         AfficherMenu();
+        string choix;
 
-        int choix = int.Parse(Console.ReadLine());
-        if (choix > 1 || choix < 4){
-            switch (choix)
-            {
-                case 1:
-                    Console.WriteLine($"Résultat de l'addition {nombre1} + {nombre2} = " + Addition(nombre1, nombre2));
-                    break;
-                case 2:
-                    Console.WriteLine($"Résultat de la soustraction {nombre1} - {nombre2} = " + Soustraction(nombre1, nombre2));
-                    break;
-                case 3:
-                    Console.WriteLine($"Résultat de la mutltiplication {nombre1} x {nombre2} = " + Multiplication(nombre1, nombre2));
-                    break;
-                case 4:
-                    Console.WriteLine($"Résultat de la division {nombre1} : {nombre2} = " + Division(nombre1, nombre2));
-                    break;
-                default:
-                    Console.WriteLine("Veuillez choisir une opération");
-                    break;
-            }
-        }
-        else
+        do
+        {
             AfficherMenu();
+            choix = Console.ReadLine();
+
+        } while (choix != "1" && choix != "2" && choix != "3" && choix != "4");
 
 
+
+
+        switch (choix)
+        {
+            case "1":
+                Console.WriteLine($"Résultat de l'addition {nombre1} + {nombre2} = " + Addition(nombre1, nombre2));
+                break;
+            case "2":
+                Console.WriteLine($"Résultat de la soustraction {nombre1} - {nombre2} = " + Soustraction(nombre1, nombre2));
+                break;
+            case "3":
+                Console.WriteLine($"Résultat de la mutltiplication {nombre1} x {nombre2} = " + Multiplication(nombre1, nombre2));
+                break;
+            case "4":
+                Console.WriteLine($"Résultat de la division {nombre1} : {nombre2} = " + Division(nombre1, nombre2));
+                break;
+            default:
+                Console.WriteLine("Veuillez choisir une opération");
+                break;
+        }
     }
+
+
+
+
 
     public static double Addition(double nombre1, double nombre2)
     {
